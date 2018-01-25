@@ -12540,11 +12540,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Project\\Assignments\\DatingApp\\DatingApp.API\\DatingApp.API.csproj",
+      "projectUniqueName": "C:\\Project\\Assignments\\DatingApp\\DatingApp.API\\DatingApp.API.csproj",
       "projectName": "DatingApp.API",
-      "projectPath": "c:\\Project\\Assignments\\DatingApp\\DatingApp.API\\DatingApp.API.csproj",
+      "projectPath": "C:\\Project\\Assignments\\DatingApp\\DatingApp.API\\DatingApp.API.csproj",
       "packagesPath": "C:\\Users\\asarksyans\\.nuget\\packages\\",
-      "outputPath": "c:\\Project\\Assignments\\DatingApp\\DatingApp.API\\obj\\",
+      "outputPath": "C:\\Project\\Assignments\\DatingApp\\DatingApp.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
