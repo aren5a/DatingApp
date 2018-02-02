@@ -15,6 +15,7 @@ namespace DatingApp.API.Controllers
     [Route("api/[controller]")]
     public class AuthController : Controller
     {
+        
         private readonly IAuthRepository _repo;
         private readonly IConfiguration _config;
         public AuthController(IAuthRepository repo,IConfiguration config)
@@ -25,9 +26,11 @@ namespace DatingApp.API.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register ([FromBody]UserForRrgisterDto userForRegisterDto )
         {
-            userForRegisterDto.Username = userForRegisterDto.Username.ToLower();
+            if(!string.IsNullOrEmpty(userForRegisterDto.Username))
+                userForRegisterDto.Username = userForRegisterDto.Username.ToLower();
+
             if (await _repo.UserExists(userForRegisterDto.Username))
-            ModelState.AddModelError("Username","The Username already exists");
+                ModelState.AddModelError("Username","The Username already exists");
             
             //validate request
             if(!ModelState.IsValid)
@@ -43,6 +46,8 @@ namespace DatingApp.API.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login ([FromBody]UserForLoginDto userForLoginDto)
         {
+            throw new Exception("Computer not working");
+            
             var userFromRepo = await _repo.Login(userForLoginDto.Username, userForLoginDto.Password);
 
             if(userFromRepo==null)
