@@ -1,1 +1,7 @@
 DatingApp.API/bin/
+DatingApp.API/obj/
+DatingApp.API/obj/DatingApp.API.csproj.nuget.cache
+DatingApp.API/obj/DatingApp.API.csproj.nuget.g.props
+DatingApp.API/obj/DatingApp.API.csproj.nuget.g.targets
+DatingApp.API/obj/project.assets.json
+DatingApp.API/obj/Debug/netcoreapp2.0/DatingApp.API.csproj.CoreCompileInputs.cache
