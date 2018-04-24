@@ -7,7 +7,7 @@
         {
             "taskName": "build",
             "args": [
-                "${workspaceRoot}/SocialApp.API/SocialApp.API.csproj"
+                "${workspaceRoot}/SocialApp.API.csproj"
             ],
             "isBuildCommand": true,
             "problemMatcher": "$msCompile"
