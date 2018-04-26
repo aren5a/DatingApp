@@ -4,26 +4,42 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import { Observable } from 'rxjs/Observable';
+import { tokenNotExpired, JwtHelper } from 'angular2-jwt';
+
 
 @Injectable()
 export class AuthService {
   userToken: any;
+  decodedToke: any;
+  jwtHelper: JwtHelper = new JwtHelper();
+
   baseUrl = 'http://localhost:5000/api/auth/';
   constructor(private http: Http) {}
 
   login(model: any) {
 
-    return this.http.post(this.baseUrl + 'login', model, this.options()).map((response: Response) => {
+    // const refreshToken = tokenGetter();
+    // this.jwtHelper.isTokenExpired(refreshToken)
+
+    return this.http
+      .post(this.baseUrl + 'login', model, this.options())
+      .map((response: Response) => {
         const user = response.json();
         if (user) {
             localStorage.setItem('token', user.tokenString);
+            this.decodedToke = this.jwtHelper.decodeToken(user.tokenString);
             this.userToken = user.tokenString;
+            return this.decodedToke;
         }
-    }).catch(this.handleError);
+      }).catch(this.handleError);
   }
 
   register(model: any) {
     return this.http.post(this.baseUrl + 'register', model, this.options()).catch(this.handleError);
+  }
+
+  loggedIn() {
+    return tokenNotExpired('token');
   }
 
   options() {
