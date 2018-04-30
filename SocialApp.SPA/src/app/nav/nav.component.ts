@@ -12,7 +12,7 @@ export class NavComponent implements OnInit {
   isLoggedIn: any;
   decodedUser: any;
 
-  constructor(private authService: AuthService,
+  constructor(public authService: AuthService,
               private alertify: AlertifyService) { }
 
   ngOnInit() {

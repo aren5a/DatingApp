@@ -10,26 +10,22 @@ import { tokenNotExpired, JwtHelper } from 'angular2-jwt';
 @Injectable()
 export class AuthService {
   userToken: any;
-  decodedToke: any;
+  decodedToken: any;
   jwtHelper: JwtHelper = new JwtHelper();
 
   baseUrl = 'http://localhost:5000/api/auth/';
   constructor(private http: Http) {}
 
   login(model: any) {
-
-    // const refreshToken = tokenGetter();
-    // this.jwtHelper.isTokenExpired(refreshToken)
-
     return this.http
       .post(this.baseUrl + 'login', model, this.options())
       .map((response: Response) => {
         const user = response.json();
         if (user) {
             localStorage.setItem('token', user.tokenString);
-            this.decodedToke = this.jwtHelper.decodeToken(user.tokenString);
+            this.decodedToken = this.jwtHelper.decodeToken(user.tokenString);
             this.userToken = user.tokenString;
-            return this.decodedToke;
+            return this.decodedToken;
         }
       }).catch(this.handleError);
   }

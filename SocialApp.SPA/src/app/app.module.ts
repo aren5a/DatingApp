@@ -2,6 +2,8 @@ import {FormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BsDropdownModule } from 'ngx-bootstrap';
+
 
 
 import { AppComponent } from './app.component';
@@ -22,7 +24,8 @@ import { AlertifyService } from './services/alertify.service';
   imports: [
     BrowserModule,
     HttpModule,
-    FormsModule
+    FormsModule,
+    BsDropdownModule.forRoot()
   ],
   providers: [
     AuthService,
