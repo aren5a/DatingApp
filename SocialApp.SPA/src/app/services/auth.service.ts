@@ -20,7 +20,7 @@ export class AuthService {
     return this.http
       .post(this.baseUrl + 'login', model, this.options())
       .map((response: Response) => {
-        const user = response.json();
+        const user = response.json() ;
         if (user) {
             localStorage.setItem('token', user.tokenString);
             this.decodedToken = this.jwtHelper.decodeToken(user.tokenString);
@@ -43,6 +43,7 @@ export class AuthService {
     const options = new RequestOptions({ headers: headers });
     return options;
   }
+
   private handleError(error: any) {
     const applicationError = error.headers.get('Application-Error');
     if (applicationError) {
