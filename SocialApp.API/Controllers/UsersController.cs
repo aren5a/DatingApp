@@ -26,7 +26,7 @@ namespace SocialApp.API.Controllers
         {
             var users = await _repo.GetUsers();
             var usersToReturn = _mapper.Map<IEnumerable<UserForDetailDto>>(users);
-            return Ok(users);
+            return Ok(usersToReturn);
         }
 
         [HttpGet("{id}")]
@@ -34,7 +34,7 @@ namespace SocialApp.API.Controllers
         {
             var user = await _repo.GetUser(id);
             var userToReturn = _mapper.Map<UserForDetailDto>(user);
-            return Ok(user);
+            return Ok(userToReturn);
         }
 
     }
